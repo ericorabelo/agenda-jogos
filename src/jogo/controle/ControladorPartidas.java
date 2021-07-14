@@ -25,10 +25,6 @@ public class ControladorPartidas {
 		return true;
 	}
 	
-	public void exibirPartidasDoDiaPorHorario() {
-		
-	}
-	
 	public Partida buscar(int id) {
 		Partida p = rep.buscar(id);
 		if(p==null) {
@@ -36,6 +32,15 @@ public class ControladorPartidas {
 		}
 		return p;
 	}
+	
+	public boolean atualizarPartida(Partida p) {
+		Partida partida = rep.atualizarPartida(p);
+        if(p==null) {
+            throw new RuntimeException("PArtida atualizada");
+        }
+
+        return true;
+    }
 	
 	public boolean apagar(int id) {
 		boolean p = rep.apagar(id);

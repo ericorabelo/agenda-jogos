@@ -15,9 +15,9 @@ public class StartandoVisao {
 		
 		System.out.println("| 1 - Criar uma Partida");
 		
-//		System.out.println("| 2 - Editar uma Partida");
-//		
-//		System.out.println("| 3 - Remover uma Partida");
+		System.out.println("| 2 - Editar uma Partida");
+		
+		System.out.println("| 3 - Remover uma Partida");
 		
 		System.out.println("| 4 - Listar Todas as Partidas");
 		
@@ -35,9 +35,9 @@ public class StartandoVisao {
 				if(opcao == 1) {
 					 adicionarEquipe();
 				}else if(opcao == 2) {
-					
+					editarPartida();
 				}else if(opcao == 3) {
-					
+					apagarPartida();
 				}else if(opcao == 4) {
 					ListarEquipes();
 				}else {
@@ -52,6 +52,107 @@ public class StartandoVisao {
 		this.cp = new ControladorPartidas();
 	}
 	
+	
+	
+	public void adicionarEquipe() {		
+		try {
+			
+			Scanner in = new Scanner(System.in);
+			
+			String nomeEquipe1, nomeEquipe2, campeonato, responsavelPelaTransmissao;
+			
+			LocalDate dataDaPartida = null; 
+			LocalTime hora = null; 
+			
+			
+			//equipe1		
+			System.out.println("\tDigite o nomeEquipe1");
+			nomeEquipe1 = in.nextLine();
+			
+			//equipe2		
+			System.out.println("\tDigite o nomeEquipe2");
+			nomeEquipe2 = in.nextLine();
+			
+			//partida
+			System.out.println("\tDigite o campeonato");
+			campeonato = in.nextLine();
+			
+			System.out.println("\tDigite o responsavelPelaTransmissao");
+			responsavelPelaTransmissao = in.nextLine();
+			
+			//ler dataDaPartida; 
+			//ler hora; 
+			
+			Equipe e1 = new Equipe(nomeEquipe1);
+			Equipe e2 = new Equipe(nomeEquipe2);
+						
+			if(cp.criarPartida(dataDaPartida, hora, e1, e2, campeonato, responsavelPelaTransmissao)) {
+				System.out.println("Partida adicionada com sucesso!");
+			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void editarPartida() {	
+	    try {
+	    	
+            Scanner in = new Scanner(System.in);
+            int id;
+        
+            String nomeEquipe1, nomeEquipe2, campeonato, responsavelPelaTransmissao;
+            
+            LocalDate dataDaPartida = null; 
+			LocalTime hora = null; 
+            
+            System.out.println("Digite o ID da partida que deseja editar: ");
+            id = in.nextInt();
+            in.nextLine();
+
+            System.out.println("Digite as Informações que deseja mudar");
+            
+            //equipe1		
+			System.out.println("\tDigite o nomeEquipe1");
+			nomeEquipe1 = in.nextLine();
+			
+			//equipe2		
+			System.out.println("\tDigite o nomeEquipe2");
+			nomeEquipe2 = in.nextLine();
+			
+			//partida
+			System.out.println("\tDigite o campeonato");
+			campeonato = in.nextLine();
+			
+			System.out.println("\tDigite o responsavelPelaTransmissao");
+			responsavelPelaTransmissao = in.nextLine();
+
+			Equipe e1 = new Equipe(nomeEquipe1);
+			Equipe e2 = new Equipe(nomeEquipe2);
+			
+			
+			Partida p = new Partida(dataDaPartida, hora, e1, e2, campeonato, responsavelPelaTransmissao);
+			p.setId(id);
+			
+            cp.atualizarPartida(p);
+
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+	}
+	
+	public void apagarPartida() {	
+		
+		 Scanner in = new Scanner(System.in);
+		 int id;
+			
+		 System.out.println("Digite id da Partida que deseja apagar ");
+		 id= in.nextInt();
+		 in.nextLine();
+
+		 cp.apagar(id);
+	}
+	
 	public void ListarEquipes() {
 		
 		System.out.println("Lista de Partidas do Repositorio");
@@ -60,40 +161,6 @@ public class StartandoVisao {
 			System.out.println(partida.toString());
 		}
 		
-	}
-	
-	public void adicionarEquipe() {		
-		try {
-			Scanner in = new Scanner(System.in);
-			String nomeEquipe1, nomeEquipe2, campeonato, responsavelPelaTransmissao;
-			int idEquipe, idPartida; 
-			//golsEquipe1, golsEquipe2
-			LocalDate dataDaPartida; 
-			LocalTime hora; 
-			
-			
-			//equipe1
-			System.out.println("\tDigite o id da Equipe1");
-			idEquipe = in.nextInt();	
-			in.nextLine();
-			
-			System.out.println("\tDigite o nomeEntidade");
-			nomeEquipe1 = in.nextLine();
-			
-			//partida
-			System.out.println("\tDigite o id da Partida");
-			idPartida = in.nextInt();
-			in.nextLine();
-			
-			Equipe e1 = new Equipe(idEquipe, nomeEquipe1);
-			
-			Partida aux = new Partida(null, null, e1, 
-					null, "", "");
-			
-			cp.criarPartida(null, null, e1, null, "", "");
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
 	}
 	
 }

@@ -7,11 +7,8 @@ public class Equipe {
 	
 	private String nome;
 	
-	public Equipe() {
-	
-	}
 
-	public Equipe(int id, String nome){
+	public Equipe(String nome){
 		//this.id = id;
 		this.id = cont;
 		cont++;

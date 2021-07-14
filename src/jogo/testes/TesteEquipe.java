@@ -18,15 +18,7 @@ class TesteEquipe {
 	
 	@BeforeEach
 	void setUp() {
-		equipe = new Equipe();
-	}
-	
-	@Test
-	@DisplayName("Definir e retornar Nome")
-	@Order(1)
-	public void testeSetGetNome() {
-		equipe.setNome("Flamengo");
-		assertEquals("Flamengo", equipe.getNome());
+		equipe = new Equipe("");
 	}
 	
 	@Test
@@ -35,6 +27,14 @@ class TesteEquipe {
 	public void testeSetGetId() {
 		equipe.setId(1);
 		assertEquals(1, equipe.getId());
+	}
+	
+	@Test
+	@DisplayName("Definir e retornar Nome")
+	@Order(2)
+	public void testeSetGetNome() {
+		equipe.setNome("Flamengo");
+		assertEquals("Flamengo", equipe.getNome());
 	}
 	
 	@AfterEach

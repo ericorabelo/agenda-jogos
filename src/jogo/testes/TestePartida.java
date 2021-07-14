@@ -4,11 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import jogo.modelos.Partida;
+
 class TestePartida {
-
+	
 	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+	void testarSeGETFunciona() {
 
+	}
+	
+	    
+	
+	
 }
