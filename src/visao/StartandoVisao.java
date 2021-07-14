@@ -39,7 +39,7 @@ public class StartandoVisao {
 				}else if(opcao == 3) {
 					apagarPartida();
 				}else if(opcao == 4) {
-					ListarEquipes();
+					listarEquipes();
 				}else {
 					break;
 				}
@@ -153,7 +153,7 @@ public class StartandoVisao {
 		 cp.apagar(id);
 	}
 	
-	public void ListarEquipes() {
+	public void listarEquipes() {
 		
 		System.out.println("Lista de Partidas do Repositorio");
 		

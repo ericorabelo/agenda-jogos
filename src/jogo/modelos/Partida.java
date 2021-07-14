@@ -14,13 +14,12 @@ public class Partida {
 	private Equipe equipe1;
 	private Equipe equipe2;
 	
-	//private boolean status;
+
 	
 	private String campeonato;
 	private String responsavelPelaTransmissao;
 	
-	//private int golsEquipe1;
-	//private int golsEquipe2;
+
 	
 	public Partida(LocalDate dataDaPartida, LocalTime hora, Equipe equipe1, Equipe equipe2, String campeonato, String responsavelPelaTransmissao) 
 	{
